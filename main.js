@@ -18,8 +18,24 @@ app.on("ready", _=>{
 });
 
 const myTemplate = [{
-    label: "File",
-    click: _=>{
+    label: electron.app.getName(),
+    submenu: [
+        {label: "About"}, 
+        {type: "separator"}, 
+        {label: "Quit",
+        click: _=>{
+            app.quit();
         },
-    }
-]
+        accelerator: "Ctrl+Q"}
+        
+    ]},
+    {label: "Dev Tools",
+    click: function(item, focusedWindow){
+        focusedWindow.toggleDevTools()
+    },
+    accelerator: 'Ctrl+i'
+}]
+
+ipc.on("athing", (evt, arg)=>{
+//javacode
+})
