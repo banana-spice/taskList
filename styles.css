@@ -15,6 +15,9 @@ h1{
     margin-top: 20px;
     text-align: center;
 }
-.tasks p{
+.tasks{
     display: block;
+    margin: auto;
+    width: 80%;
+    height: 3em;
 }

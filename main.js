@@ -3,9 +3,10 @@ const app = electron.app;
 const dialog = electron.dialog;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
-const ipc = electron.ipcMain
-const path = require("path")
+const ipc = electron.ipcMain;
+const path = require("path");
 const fs = require("fs");
+const document = `file://${__dirname}/index.html`
 
 app.on("ready", _=>{
     console.log("ret-2-go!");
@@ -43,6 +44,8 @@ const myTemplate = [{
         }},
         {label: "Clear Items",
         click: _=>{
+            document.getElementById("task").value = undefined;
+
             console.log("cleared")
         }},
     ]},
