@@ -1,1 +1,12 @@
-body{background-color: #ff6699;}
+html, body, h1, p {
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(images/paper.png);
+    font-family: 'Comic Sans MS', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+    margin: 20px;
+    text-align: center;
+}

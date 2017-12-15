@@ -3,6 +3,8 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const Menu = electron.Menu;
 const ipc = electron.ipcMain
+const path = require("path")
+const fs = require("fs");
 
 app.on("ready", _=>{
     console.log("ret-2-go!");
@@ -18,24 +20,34 @@ app.on("ready", _=>{
 });
 
 const myTemplate = [{
-    label: electron.app.getName(),
+    label: "File",
     submenu: [
-        {label: "About"}, 
+        {label: "Open",
+        click: _=>{
+            openFile();
+        },
+        accelerator: "Ctrl+O"},
         {type: "separator"}, 
         {label: "Quit",
         click: _=>{
             app.quit();
         },
         accelerator: "Ctrl+Q"}
-        
     ]},
-    {label: "Dev Tools",
+    {label: "Edit",
+    submenu: [
+        {label: "Add Item",
+        click: _=>{
+            console.log("Added")
+        }},
+        {label: "Clear Items",
+        click: _=>{
+            console.log("cleared")
+        }},
+    ]},
+    {label: "Developer Tools",
     click: function(item, focusedWindow){
         focusedWindow.toggleDevTools()
     },
-    accelerator: 'Ctrl+i'
-}]
-
-ipc.on("athing", (evt, arg)=>{
-//javacode
-})
+    accelerator: 'Ctrl+T'}
+]

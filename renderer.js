@@ -1,15 +1,13 @@
-const electron = require("electron");
+const electron = require("electron").remote;
 const ipc = electron.ipcRenderer;
 
-const dialog = app.dialog;
+const dialog = electron.dialog;
 const fs = require("fs");
 
-document.getElementById("buttonname").addEventListener("click", _=>{
-    ipc.send("athing")
-})
 
-document.getElementById("button").addEventListener("click", saveFile);
-document.getElementById("button2").addEventListener("click", openFile);
+document.getElementById("savebtn").addEventListener("click", saveFile);
+document.getElementById("openbtn").addEventListener("click", openFile);
+
 
 function saveFile(){
     dialog.showSaveDialog((filename)=>{
@@ -18,9 +16,9 @@ function saveFile(){
             return;
         }
 
-        var content = document.getElementById("content").value
+        var content = document.getElementById("task").value
 
-        fs.writeFile(filename, content, (err)=>{
+       fs.writeFile(filename, content, (err)=>{
             if (err) console.log(err)
                 alert("File Saved!")
         })
@@ -34,7 +32,7 @@ function openFile(){
             return;
         }
 
-        readFile(filename[0]);
+        readFile(filenames[0]);
     })
 }
 
@@ -44,7 +42,6 @@ function readFile(filepath){
             alert("Error retreiving file");
             return;
         }
-        var textArea = document.getElementById("output")
+        var textArea = document.getElementById("task")
         textArea.value = data;
-    })
-}
+    })}
