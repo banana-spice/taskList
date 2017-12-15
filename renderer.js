@@ -25,23 +25,4 @@ function saveFile(){
     })
 }
 
-function openFile(){
-    dialog.showOpenDialog((filenames)=>{
-        if(filenames === undefined){
-            alert("No files selected");
-            return;
-        }
 
-        readFile(filenames[0]);
-    })
-}
-
-function readFile(filepath){
-    fs.readFile(filepath, "utf-8", (err, data)=>{
-        if(err){
-            alert("Error retreiving file");
-            return;
-        }
-        var textArea = document.getElementById("task")
-        textArea.value = data;
-    })}

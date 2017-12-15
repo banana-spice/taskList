@@ -7,6 +7,11 @@ body{
     font-family: 'Comic Sans MS', Tahoma, Geneva, Verdana, sans-serif;
 }
 h1{
-    margin: 20px;
+    margin: 30px;
+    text-align: center;
+}
+.buttons{
+    display: block;
+    margin-top: 20px;
     text-align: center;
 }
