@@ -6,8 +6,6 @@ const fs = require("fs");
 
 
 document.getElementById("savebtn").addEventListener("click", saveFile);
-document.getElementById("openbtn").addEventListener("click", openFile);
-
 
 function saveFile(){
     dialog.showSaveDialog((filename)=>{
